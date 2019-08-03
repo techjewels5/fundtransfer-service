@@ -29,7 +29,7 @@ public class FundTransferServiceImpl implements FundTransferService {
 	public ResponseData fundTransfer(FundTransferDto fundTransferDto) {
 
 		Optional<Account> fromAccountOptional = accountRepository.findById(fundTransferDto.getFromAccount());
-		Optional<Account> toAccountOptional = accountRepository.findById(fundTransferDto.getFromAccount());
+		Optional<Account> toAccountOptional = accountRepository.findById(fundTransferDto.getToAccount());
 		ResponseData response = new ResponseData();
 
 		if (fromAccountOptional.isPresent() && toAccountOptional.isPresent()) {

@@ -61,7 +61,7 @@ public class AccountDetailsService {
 	private AccountDetailsDto getAccountDetailsDto(Optional<Transaction> transaction, Optional<Account> account) {
 		TransactionHistoryDto transactionHistroyDto = new TransactionHistoryDto();
 		transactionHistroyDto.setAmount(transaction.get().getAmount());
-		transactionHistroyDto.setFromAccount(transaction.get().getFromAccount().getAccountNumber());
+		transactionHistroyDto.setFromAccount(transaction.get().getFromAccount());
 		transactionHistroyDto.setToAccount(transaction.get().getToAccount());
 		transactionHistroyDto.setTransactionDate(transaction.get().getTransactionDate());
 		transactionHistroyDto.setTransactionType(transaction.get().getTransactionType());
