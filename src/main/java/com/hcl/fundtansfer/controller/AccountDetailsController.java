@@ -1,8 +1,7 @@
 package com.hcl.fundtansfer.controller;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +22,7 @@ public class AccountDetailsController {
 	
 	@GetMapping("/details/{customerId}")
 	public ResponseEntity<ResponseData> getAccountDetails(@PathVariable Long customerId) {
-		return new ResponseEntity<>(accountDetailsService.getAccountDetails());
+		return new ResponseEntity<>(accountDetailsService.getAccountDetails(customerId), HttpStatus.OK);
 	}
 	
 }
