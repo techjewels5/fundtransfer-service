@@ -32,7 +32,7 @@ public class Transaction {
 	private String comment;
 	
 	@ManyToOne
-	@JoinColumn(name = "accountNumber")
+	@JoinColumn(name = "fromAccount")
 	@JsonIgnore
 	private Account fromAccount;
 }
