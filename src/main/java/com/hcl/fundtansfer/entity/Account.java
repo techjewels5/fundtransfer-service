@@ -46,7 +46,7 @@ public class Account implements Serializable {
 	@JsonIgnore
 	private Customer customerDetails;
 	
-	@OneToMany(mappedBy = "fromAccount")
+	@OneToMany(mappedBy = "accountNumber")
 	private List<Transaction> transactionHistories;
 
 }
