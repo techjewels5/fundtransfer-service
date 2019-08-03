@@ -20,7 +20,9 @@ import lombok.Data;
 @Data
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
 public class Transaction implements Serializable {
-	
+
+	private static final long serialVersionUID = -4889888447857772531L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long transactionId;
@@ -32,11 +34,13 @@ public class Transaction implements Serializable {
 	private Double amount;
 
 	private Long toAccount;
+	
+	private Long fromAccount;
 
 	private String comment;
 	
 	@ManyToOne
-	@JoinColumn(name = "fromAccount")
+	@JoinColumn(name = "account_number")
 	@JsonIgnore
-	private Account fromAccount;
+	private Account accountNumber;
 }

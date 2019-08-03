@@ -39,6 +39,8 @@ public class Account implements Serializable {
 	
 	private Double transectionLimit;
 	
+	private double todaysTransectionLimit;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	@JsonIgnore
