@@ -8,4 +8,6 @@ import com.hcl.fundtansfer.entity.Transaction;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long>{
 
+	Transaction findByFromAccount(Long accountNumber);
+
 }

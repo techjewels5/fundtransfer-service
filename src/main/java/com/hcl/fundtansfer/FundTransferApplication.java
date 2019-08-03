@@ -1,4 +1,4 @@
-package com.hcl.fundtransfer;
+package com.hcl.fundtansfer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
