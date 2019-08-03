@@ -8,6 +8,8 @@ import com.hcl.fundtansfer.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
+	
+	public Optional<Customer> findByCustomerIdAndPassword(Long customerId, String password);
 
 	Optional<Customer> findByCustomerId(Long customerId);
 
