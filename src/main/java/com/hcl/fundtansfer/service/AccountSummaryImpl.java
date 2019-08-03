@@ -32,6 +32,7 @@ public class AccountSummaryImpl implements AccountSummary {
 			Account account = accountRepository.findByCustomerAccount(customerId);
 			//responseData.setData(accOptional.get());
 			
+//			AccountDto accountDto = accountRepository.findByCustomerDetails(customerId);
 			AccountDto accountDto = new AccountDto();
 			accountDto.setAccountHolder(account.getAccountHolder());
 			accountDto.setAccountNumber(account.getAccountNumber());
