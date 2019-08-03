@@ -1,5 +1,6 @@
 package com.hcl.fundtansfer.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,14 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
 
 @Entity
 @Data
-public class Account {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
+public class Account implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private Long accountNumber;
 

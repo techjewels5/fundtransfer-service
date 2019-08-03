@@ -9,6 +9,6 @@ import com.hcl.fundtansfer.entity.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long>{
 
-	Optional<Account> findByUserId(Long customerId);
+	Optional<Account> findByAccountNumber(Long customerId);
 
 }

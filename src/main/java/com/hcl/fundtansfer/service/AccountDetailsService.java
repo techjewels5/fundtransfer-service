@@ -8,9 +8,11 @@ import com.google.common.base.Optional;
 import com.hcl.fundtansfer.dto.AccountDetailsDto;
 import com.hcl.fundtansfer.dto.TransactionHistoryDto;
 import com.hcl.fundtansfer.entity.Account;
+import com.hcl.fundtansfer.entity.Customer;
 import com.hcl.fundtansfer.entity.Transaction;
 import com.hcl.fundtansfer.exception.ResourceNotFoundException;
 import com.hcl.fundtansfer.repository.AccountRepository;
+import com.hcl.fundtansfer.repository.CustomerRepository;
 import com.hcl.fundtansfer.repository.TransactionRepository;
 import com.hcl.fundtansfer.utils.ResponseData;
 
@@ -22,21 +24,26 @@ public class AccountDetailsService {
 	
 	@Autowired
 	TransactionRepository transactionRepository;
+	
+	@Autowired 
+	CustomerRepository customerRepository;
 
 	public ResponseData getAccountDetails(Long customerId) {
 		
 		Optional<Transaction> transaction = null;
 		ResponseData responseData = new ResponseData();
-		
-		Optional<Account> account = accountRepository.findByUserId(customerId);
-		System.out.println(customerId);
-		System.out.println(account);
-		if(!account.isPresent()) {
+
+		Optional<Customer> customer = customerRepository.findByCustomerId(customerId);
+		if(!customer.isPresent()) {
 			throw new ResourceNotFoundException("Customer Id is not valid: " + customerId);
+		}
+
+		Optional<Account> account = accountRepository.findByAccountNumber(customer.get().getAccount().getAccountNumber());
+		if(!account.isPresent()) {
+			throw new ResourceNotFoundException("Account Number is not found for customerId: " + customerId);
 		}
 		
 		transaction = transactionRepository.findByFromAccount(account.get().getAccountNumber());
-		System.out.println(transaction);
 		if(!account.isPresent()) {
 			throw new ResourceNotFoundException("No transactions Found for customer id:" + customerId);
 		}
