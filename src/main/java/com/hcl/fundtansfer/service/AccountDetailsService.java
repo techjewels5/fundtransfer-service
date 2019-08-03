@@ -26,8 +26,10 @@ public class AccountDetailsService {
 		Transaction transaction = transactionRepository.findByFromAccount(account.getAccountNumber());
 		
 		AccountDetailsDto accountDetailsDto = new AccountDetailsDto();
-		//accountDetailsDto.setAccountBalance(account);
-		
+		accountDetailsDto.setAccountBalance(account.getBalance());
+		accountDetailsDto.setAccountCreationDate(account.getCreationDate());
+		accountDetailsDto.setAccountNumber(account.getAccountNumber());
+		//accountDetailsDto.setTransactionHistroy(transaction);
 		
 		ResponseData responseData = new ResponseData();
 		responseData.setMessage(null);
