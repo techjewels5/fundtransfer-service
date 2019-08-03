@@ -29,6 +29,10 @@ public class Account {
 	
 	private LocalDate creationDate;
 	
+	private Double minmumBalance;
+	
+	private Double transectionLimit;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	@JsonIgnore
